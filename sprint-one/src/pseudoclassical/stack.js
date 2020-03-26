@@ -11,7 +11,7 @@ Stack.prototype.push = function(value) {
 };
 
 Stack.prototype.pop = function() {
-  if (this.count > 0){
+  if (this.count > 0) {
     this.count--;
   }
   var lastElement = this.count;
