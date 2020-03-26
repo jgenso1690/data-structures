@@ -9,8 +9,8 @@ var Queue = function() {
 var queueMethods = {
   count: 0,
   enqueue: function(value){
-    var count = this.count; // We needed a counter variable to point towards the _value_ contained by this.count, not to point at this.count itself
-    this[count] = value; // This line will assign the value to the _number_ that this.count currently contains
+    var count = this.count;
+    this[count] = value;
     this.count++;
   },
   dequeue: function(){
