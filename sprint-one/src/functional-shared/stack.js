@@ -8,12 +8,12 @@ var Stack = function() {
 
 var stackMethods = {
   count: 0,
-  push: function(value){  // a
-    var counter = this.count; // counter = 0
-    this[counter] = value;    // 0 : a
-    this.count++;   // count : 1
+  push: function(value) {
+    var counter = this.count;
+    this[counter] = value;
+    this.count++;
   },
-  pop: function(){
+  pop: function() {
     var counter = this.count - 1;
     if (this.count > 0){
       this.count--;
@@ -22,7 +22,7 @@ var stackMethods = {
     return this[counter];
 
   },
-  size: function(){
+  size: function() {
     return this.count;
   }
 };

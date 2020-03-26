@@ -8,7 +8,7 @@ var Queue = function() {
 
 var queueMethods = {
   count: 0,
-  enqueue: function(value){
+  enqueue: function(value) {
     var count = this.count;
     this[count] = value;
     this.count++;
@@ -16,10 +16,10 @@ var queueMethods = {
   dequeue: function(){
     var count = this.count;
     var result = this['0'];
-    for (var i = 1; i < count; i++){
+    for (var i = 1; i < count; i++) {
       this[i - 1] = this[i];
     }
-    if (count > 0){
+    if (count > 0) {
       this.count--;
     }
     return result;
