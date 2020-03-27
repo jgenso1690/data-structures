@@ -8,19 +8,32 @@ var Tree = function(value) {
 
 
   // your code here
-  newTree.children = [];// fix me
+  newTree.children = [];
   _.extend(newTree, treeMethods);
   return newTree;
 };
 
 var treeMethods = {};
 
-treeMethods.addChild = function(value) {// what object is to the left of the dot?   pointerC.addchild(e) -> var newChild
-  var newChild = Tree(value);// pointerA.addchild(c)  ->  var newChild = Tree(c) -> pointerA.children.push(newChild)
-  this.children.push(newChild);// currentTree = [treeObject that CONTAINS a]
+treeMethods.addChild = function(value) {
+  var newChild = Tree(value);
+  this.children.push(newChild)
 };
 
 treeMethods.contains = function(target) {
+  if (this.value === target) {
+    return true;
+  }
+  if (this.children.length === 0) {
+    return false;
+  } else {
+    return _.reduce(this.children, function(accumulator, item) {
+      if (accumulator === true) {
+        return true;
+      }
+      return item.contains(target);
+    }, false, this);
+  }
 };
 
 
