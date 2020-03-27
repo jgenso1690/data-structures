@@ -8,16 +8,16 @@ var Tree = function(value) {
 
 
   // your code here
-  newTree.children = [];  // fix me
+  newTree.children = [];// fix me
   _.extend(newTree, treeMethods);
   return newTree;
 };
 
 var treeMethods = {};
 
-treeMethods.addChild = function(value) {   // what object is to the left of the dot?   pointerC.addchild(e) -> var newChild
-  var newChild = Tree(value);  // pointerA.addchild(c)  ->  var newChild = Tree(c) -> pointerA.children.push(newChild)
-  this.children.push(newChild);  // currentTree = [treeObject that CONTAINS a]
+treeMethods.addChild = function(value) {// what object is to the left of the dot?   pointerC.addchild(e) -> var newChild
+  var newChild = Tree(value);// pointerA.addchild(c)  ->  var newChild = Tree(c) -> pointerA.children.push(newChild)
+  this.children.push(newChild);// currentTree = [treeObject that CONTAINS a]
 };
 
 treeMethods.contains = function(target) {
