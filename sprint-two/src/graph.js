@@ -7,7 +7,7 @@ var Graph = function() {
 };
 
 // Add a node to the graph, passing in the node's value.
-Graph.prototype.addNode = function(node) {
+Graph.prototype.addNode = function(node) { // O(1)
   // input: node's value
   // output: object with value === argument
   var allNodes = this.allNodes;
@@ -15,7 +15,7 @@ Graph.prototype.addNode = function(node) {
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
-Graph.prototype.contains = function(node) {
+Graph.prototype.contains = function(node) { // O(n)
   var allNodes = this.allNodes;
   // loop through the allNodes object and see if a given key is NOT undefined
   // if not undefined, return true
@@ -32,7 +32,7 @@ Graph.prototype.contains = function(node) {
 };
 
 // Removes a node from the graph.
-Graph.prototype.removeNode = function(node) {
+Graph.prototype.removeNode = function(node) { // O(n)
   // remove all edges the node has with other nodes, and remove all other nodes' edges with it
   // remove value from allNodes
   var allNodes = this.allNodes;
@@ -46,7 +46,7 @@ Graph.prototype.removeNode = function(node) {
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
-Graph.prototype.hasEdge = function(fromNode, toNode) {
+Graph.prototype.hasEdge = function(fromNode, toNode) { // O(1)
   // input: two values (that are keys in allNodes)
   // output: boolean - are they connected
   var currentNode = fromNode;
@@ -55,7 +55,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 };
 
 // Connects two nodes in a graph by adding an edge between them.
-Graph.prototype.addEdge = function(fromNode, toNode) {
+Graph.prototype.addEdge = function(fromNode, toNode) { // O(1)
   // pushing the toNode value to fromNode's array
   // pushing the fromNode value to the toNode's array
   var allNodes = this.allNodes;
@@ -64,7 +64,7 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 };
 
 // Remove an edge between any two specified (by value) nodes.
-Graph.prototype.removeEdge = function(fromNode, toNode) {
+Graph.prototype.removeEdge = function(fromNode, toNode) { // O(1)
   // input: two nodes (that are keys within allNodes)
   // output: nothing
   // side effect: remove each node's value from the connected node's array
@@ -77,7 +77,7 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
 };
 
 // Pass in a callback which will be executed on each node of the graph.
-Graph.prototype.forEachNode = function(cb) {
+Graph.prototype.forEachNode = function(cb) { // O(n)
   var allNodes = this.allNodes;
   // Object.keys(allNodes) = a new array of the original node values
   var oldKeys = Object.keys(allNodes);
