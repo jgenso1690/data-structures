@@ -5,7 +5,7 @@ var HashTable = function() {
   this._storage = LimitedArray(this._limit);
 };
 
-HashTable.prototype.insert = function(key, value) {
+HashTable.prototype.insert = function(key, value) { // O(1)-ish
   var index = getIndexBelowMaxForKey(key, this._limit);
   var storage = this._storage;
   //check the hash table at the provided index
@@ -32,7 +32,7 @@ HashTable.prototype.insert = function(key, value) {
   //push a tupel of the [key, value] into the bucket at the index
 };
 
-HashTable.prototype.retrieve = function(key) {
+HashTable.prototype.retrieve = function(key) { // O(1) (mostly)
   var storage = this._storage;
   var index = getIndexBelowMaxForKey(key, this._limit);
   var currentBucket = storage.get(index);
@@ -43,8 +43,15 @@ HashTable.prototype.retrieve = function(key) {
   }
 };
 
-HashTable.prototype.remove = function(key) {
+HashTable.prototype.remove = function(key) { // O(1) mostly
   var index = getIndexBelowMaxForKey(key, this._limit);
+  var storage = this._storage;
+  var currentBucket = storage.get(index);
+  for ( var i = 0; i < currentBucket.length; i++) {
+    if (currentBucket[i][0] === key) {
+      currentBucket.splice(i, 1);
+    }
+  }
 };
 
 
